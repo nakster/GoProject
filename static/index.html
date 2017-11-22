@@ -99,7 +99,20 @@
           
           }});
 
+       // greetings for eliza to say to users
+      var greetings = [
+        "I am Eliza is something troubling you?",
+        "How can I help you.",
+        "Bonjour I am Eliza What seems to bother you?",
+        "Hello I am Eliza Please tell me your problem.",
+        "Hola How are you doing today?", 
+      ]
 
+      //create a new variable which get the a random greeting 
+      var returnGreeting = greetings[Math.floor(Math.random()*greetings.length)];
+      //return the random greeting 
+      document.getElementById("elizaBox").innerHTML = "Eliza: " + returnGreeting + "\n";
+      
     </script>
 
  
