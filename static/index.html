@@ -83,6 +83,11 @@
 
              //clear the user box so whatever the user enters it gets cleared after pressing the submit button
               document.getElementById("userInputs").value = "";  
+
+              //make a variable which gets the length of the user input
+              var lenOfText = userT.length;   
+              //if anything that is entered less then 1 char will not run the code 
+              if(lenOfText < 1) return;
       }
 
       //Add a Javascript event listener to the keydown event.
