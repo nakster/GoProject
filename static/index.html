@@ -80,6 +80,9 @@
             xhr.setRequestHeader("userAskEliza", userT);
             //send it 
             xhr.send();
+
+             //clear the user box so whatever the user enters it gets cleared after pressing the submit button
+              document.getElementById("userInputs").value = "";  
       }
 
       //Add a Javascript event listener to the keydown event.
@@ -111,8 +114,7 @@
       //create a new variable which get the a random greeting 
       var returnGreeting = greetings[Math.floor(Math.random()*greetings.length)];
       //return the random greeting 
-      document.getElementById("elizaBox").innerHTML = "Eliza: " + returnGreeting + "\n";
-      
+      document.getElementById("elizaBox").innerHTML = "Eliza: " + returnGreeting + "\n";     
     </script>
 
  
