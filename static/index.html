@@ -32,7 +32,7 @@
           </label>
      
           <!--https://stackoverflow.com/questions/7803814/prevent-refresh-of-page-when-button-inside-form-clicked-->
-          <button name="data" type="button" id="buttonId" class="btn btn-primary">Send</button> 
+          <button name="data" type="button" id="buttonId" class="btn btn-primary" onclick="return askEliza()">Send</button> 
        
          </div>
       </form>
@@ -44,6 +44,46 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script>
+
+        //https://blog.garstasio.com/you-dont-need-jquery/ajax/
+      //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+      //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asphttps://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+      function askEliza() {
+
+            //make a new variable which is set to whatever the user enters 
+            var userT = document.getElementById("userInputs").value;
+
+            var printUserQuestion ="\n" + "User: " + userT;
+
+            var xhr = new XMLHttpRequest();
+            //this prints the question and elizas response 
+            xhr.onreadystatechange = function () {
+                //Triple equal sign in javascript means equality without type coercion https://stackoverflow.com/questions/11234575/triple-3-equal-signs
+                //readystate === 4 means The operation is complete.
+                //status 200 denotes a successful request If the server response doesn't
+                // explicitly specify a status code, XMLHttpRequest.status will assume the default value of 200.
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
+                // document.getElementById("elizaBox").value += "\nUser: " + xhr.responseText + "\nEliza: Tell me more about yourself?\n";
+                document.getElementById("elizaBox").value += printUserQuestion + xhr.responseText;
+                    //this keeps scrolling down with the questions
+                    //https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
+                    document.getElementById("elizaBox").scrollTop =  document.getElementById("elizaBox").scrollHeight;
+                }
+            }
+            //open it 
+            xhr.open("POST", "/askEliza");
+            // xhr.setRequestHeader("Cache-Control", "no-cache");
+            // xhr.setRequestHeader("userAskEliza", document.getElementById("userInputs").value);
+            xhr.setRequestHeader("userAskEliza", userT);
+            //send it 
+            xhr.send();
+      }
+
+
+    </script>
 
  
   </body>
