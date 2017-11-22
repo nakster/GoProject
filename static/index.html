@@ -17,7 +17,7 @@
       <h1 id="hiEliza" >Welcome I'm Eliza</h1>
     </div>
 
-    <div class="container">
+    <div class="container" onSubmit="return false;">
       <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
       <form id="user-input-form">
         <div class="form-group" style="text-align: center">
@@ -81,6 +81,23 @@
             //send it 
             xhr.send();
       }
+
+      //Add a Javascript event listener to the keydown event.
+      //https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+      // document.getElementById("userInputs").addEventListener('keydown',(evt)=>{
+      //     switch(evt.which){
+      //       case 13:
+      //       //if user pressed enter then run your askEliza function
+      //       askEliza();
+      //       // alert("Enter was pressed was presses");
+      //     }
+      // });
+      $("#userInputs").keydown((evt)=>{
+          if (evt.keyCode == 13){
+              //if user pressed enter then run your askEliza function
+            askEliza();
+          
+          }});
 
 
     </script>
