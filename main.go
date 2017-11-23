@@ -1,20 +1,21 @@
 package main
 
 import (
-	"net/http"
 	"fmt"
+	"net/http"
 
+	"./src/util"
 )
 
 //can name it anything you want i.e handlerFunc
 func handlerFunc(w http.ResponseWriter, r *http.Request) {
 
 	// //get the string from the input box
-	 userSent := r.Header.Get("userAskEliza")
-	
+	userSent := r.Header.Get("userAskEliza")
+
 	//send the answer to the user
-	fmt.Fprintf(w, "\nEliza: %s\n", userSent)
-	
+	fmt.Fprintf(w, "\nEliza: %s\n", util.ReplyQuestion(userSent))
+
 }
 
 func main() {
@@ -25,5 +26,5 @@ func main() {
 	//serves the folder
 	http.Handle("/", http.FileServer(http.Dir("./static")))
 	http.ListenAndServe(":8080", nil)
-	
+
 }
