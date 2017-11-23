@@ -1,163 +1,227 @@
-<!--adapted from https://bootsnipp.com/snippets/featured/like-hangout-chat-->
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Hello, I'm Eliza</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <style>
-      /* add a background image */
-      body{
+<!-- From: https://v4-alpha.getbootstrap.com/getting-started/introduction/ -->
+
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+
+  <style>
+    body{
         background-image: url("./images/botback.jpg");  
        
       }
-      /* center the text h1 */
       #hiEliza{
         /* margin-left: -80px;
         margin-right: auto; */
         text-align: center;
+    }
+    #mytext{
+    border:0;padding:10px;background:whitesmoke;
+    }
+    .text{
+        width:75%;display:flex;flex-direction:column;
+    }
+    .text > p:first-of-type{
+        width:100%;margin-top:0;margin-bottom:auto;line-height: 13px;font-size: 12px;
+    }
+    .text > p:last-of-type{
+        width:100%;text-align:right;color:silver;margin-bottom:-7px;margin-top:auto;
+    }
+    .text-l{
+        float:left;padding-right:10px;
+    }        
+    .text-r{
+        float:right;padding-left:10px;
+    }
+    .avatar{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:25%;
+        float:left;
+        padding-right:10px;
+    }
+    .macro{
+        margin-top:5px;width:85%;border-radius:5px;padding:5px;display:flex;
+    }
+    .msj-rta{
+        float:right;background:whitesmoke;
+    }
+    .msj{
+        float:left;background:white;
+    }
+    .frame{
+        background:#e0e0de;
+        height:450px;
+        overflow:hidden;
+        padding:0;
+    }
+    .frame > div:last-of-type{
+        position:absolute;bottom:5px;width:100%;display:flex;
+    }
+    ul {
+        width:100%;
+        list-style-type: none;
+        padding:18px;
+        position:absolute;
+        bottom:32px;
+        display:flex;
+        flex-direction: column;
+
+    }
+    .msj:before{
+        width: 0;
+        height: 0;
+        content:"";
+        top:-5px;
+        left:-14px;
+        position:relative;
+        border-style: solid;
+        border-width: 0 13px 13px 0;
+        border-color: transparent #ffffff transparent transparent;            
+    }
+    .msj-rta:after{
+        width: 0;
+        height: 0;
+        content:"";
+        top:-5px;
+        left:14px;
+        position:relative;
+        border-style: solid;
+        border-width: 13px 13px 0 0;
+        border-color: whitesmoke transparent transparent transparent;           
+    }  
+    input:focus{
+        outline: none;
+    }        
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #d4d4d4;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: #d4d4d4;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: #d4d4d4;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: #d4d4d4;
+    }   
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="">Hi I am Eliza</h1>
+  </div>
+
+  <div class="container">
+    <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
+  
+         <div class="col-sm-3 col-sm-offset-4 frame">
+            <ul></ul>
+            <div>
+                <div class="msj-rta macro" style="margin:auto">                        
+                    <div class="text text-r" style="background:whitesmoke !important">
+                        <input id="mytext" placeholder="Type a message"/>
+                    </div> 
+                </div>
+            </div>
+        </div>       
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var me = {};
+    me.avatar = "http://wfarm2.dataknet.com/static/resources/icons/set108/b5cdab07.png";
+
+    var you = {};
+    you.avatar = "http://cdn2.stylecraze.com/wp-content/uploads/2014/01/161-8-Famous-Bob-Hairstyles-Of-Jennifer-Aniston.jpg";
+
+    function formatAMPM(date) {
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      var strTime = hours + ':' + minutes + ' ' + ampm;
+      return strTime;
+    }
+
+    //-- No use time. It is a javaScript effect.
+    function insertChat(who, text, time = 0) {
+      var control = "";
+      var date = formatAMPM(new Date());
+
+      if (who == "me") {
+        control = '<li style="width:100%">' +
+          '<div class="msj macro">' +
+          '<div class="avatar"><img class="img-circle" style="width:100%;" src="' + me.avatar + '" /></div>' +
+          '<div class="text text-l">' +
+          '<p>' + text + '</p>' +
+          '<p><small>'+ "Naqi" + date + '</small></p>' +
+          '</div>' +
+          '</div>' +
+          '</li>';
+      } else {
+        control = '<li style="width:100%;">' +
+          '<div class="msj-rta macro">' +
+          '<div class="text text-r">' +
+          '<p>' + text + '</p>' +
+          '<p><small>' + date + '</small></p>' +
+          '</div>' +
+          '<div class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:100%;" src="' + you.avatar + '" /></div>' +
+          '</li>';
       }
-      /* this effects the textarea box */
-      #elizaBox{
-        border-style: double;
-        border-width: 5px;
-        border-radius: 10px;
-        width: 450px;
-        overflow: auto;
-      }  
-      /* round the radius of the inputbox */
-      #userInputs{
-        border-radius: 5px;
+      setTimeout(
+        function () {
+          $("ul").append(control);
+
+        }, time);
+
+    }
+
+    function resetChat() {
+      $("ul").empty();
+    }
+
+    $("#mytext").on("keyup", function (e) {
+      if (e.which == 13) {
+        var text = $(this).val();
+        if (text !== "") {
+          insertChat("me", text, 100);
+          $.get('/user-input', { value: $('#mytext').val() })
+            .done(function (data) {
+              insertChat("you", data, 500)
+            })
+          $(this).val('');
+        }
       }
-      /* put the submit button on top of the inputbox */
-      #buttonId{
-        margin-left: -65px;
-        margin-top: -2px;
-        border-radius: 5px;
-      }
-      /*make modifications to the scrollbar */
-      ::-webkit-scrollbar {
-         width: 7px;
-      }
-      /* this makes the under part of the scrollbar smaller */
-      ::-webkit-scrollbar-track {
-        background: rgb(112, 112, 117);
-        border: 4px solid transparent;
-        background-clip: content-box;  
-      }
-      /* this sets the colour of the front part of the scrollbar */
-      ::-webkit-scrollbar-thumb {
-          background: rgb(208, 208, 223);
-      }
-    </style>
-  </head>
-  <body>
-    
-    <div class="container">
-      <h1 id="hiEliza" >Welcome I'm Eliza</h1>
-    </div>
+    });
 
-    <div class="container" onSubmit="return false;">
-      <!-- Adapted from: https://v4-alpha.getbootstrap.com/components/forms/ -->
-      <form id="user-input-form">
-        <div class="form-group" style="text-align: center">
-          
-          <label for="output-area">
-            
-              <textarea class="form-control" name="Eliza" id="elizaBox" rows="20" cols="50" disabled></textarea>
-              <!--<label for="user-input">hello</label> --> <!--this puts space between the two textboxes-->
-              
-              <input type="text" class="form-control" id="userInputs" name="user" aria-describedby="user-input-help" placeholder="Enter input">
-              
-          </label>
-     
-          <!--https://stackoverflow.com/questions/7803814/prevent-refresh-of-page-when-button-inside-form-clicked-->
-          <button name="data" type="button" id="buttonId" class="btn btn-primary" onclick="return askEliza()">Send</button> 
-       
-         </div>
-      </form>
+    //-- Clear Chat
+    resetChat();
 
-    </div>
+    $("#user-input-form").submit(
+      function (event) {
+        event.preventDefault();
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      });
+  </script>
+</body>
 
-    <script>
-
-        //https://blog.garstasio.com/you-dont-need-jquery/ajax/
-      //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
-      //https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asphttps://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
-      function askEliza() {
-
-            //make a new variable which is set to whatever the user enters 
-            var userT = document.getElementById("userInputs").value;
-
-            var printUserQuestion ="\n" + "User: " + userT;
-
-            var xhr = new XMLHttpRequest();
-            //this prints the question and elizas response 
-            xhr.onreadystatechange = function () {
-                //Triple equal sign in javascript means equality without type coercion https://stackoverflow.com/questions/11234575/triple-3-equal-signs
-                //readystate === 4 means The operation is complete.
-                //status 200 denotes a successful request If the server response doesn't
-                // explicitly specify a status code, XMLHttpRequest.status will assume the default value of 200.
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
-                // document.getElementById("elizaBox").value += "\nUser: " + xhr.responseText + "\nEliza: Tell me more about yourself?\n";
-                document.getElementById("elizaBox").value += printUserQuestion + xhr.responseText;
-                    //this keeps scrolling down with the questions
-                    //https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
-                    document.getElementById("elizaBox").scrollTop =  document.getElementById("elizaBox").scrollHeight;
-                }
-            }
-            //open it 
-            xhr.open("POST", "/askEliza");
-            // xhr.setRequestHeader("Cache-Control", "no-cache");
-            // xhr.setRequestHeader("userAskEliza", document.getElementById("userInputs").value);
-            xhr.setRequestHeader("userAskEliza", userT);
-            //send it 
-            xhr.send();
-
-             //clear the user box so whatever the user enters it gets cleared after pressing the submit button
-              document.getElementById("userInputs").value = "";  
-
-              //make a variable which gets the length of the user input
-              var lenOfText = userT.length;   
-              //if anything that is entered less then 1 char will not run the code 
-              if(lenOfText < 1) return;
-      }
-
-      //Add a Javascript event listener to the keydown event.
-      //https://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
-      $("#userInputs").keydown((evt)=>{
-          if (evt.keyCode == 13){
-              //if user pressed enter then run your askEliza function
-            askEliza();
-          
-          }});
-
-       // greetings for eliza to say to users
-      var greetings = [
-        "I am Eliza is something troubling you?",
-        "How can I help you.",
-        "Bonjour I am Eliza What seems to bother you?",
-        "Hello I am Eliza Please tell me your problem.",
-        "Hola How are you doing today?", 
-      ]
-
-      //create a new variable which get the a random greeting 
-      var returnGreeting = greetings[Math.floor(Math.random()*greetings.length)];
-      //return the random greeting 
-      document.getElementById("elizaBox").innerHTML = "Eliza: " + returnGreeting + "\n";     
-    </script>
-
- 
-  </body>
 </html>
