@@ -1,9 +1,9 @@
 //adapted from https://bootsnipp.com/snippets/featured/simple-chat
 var me = {};
-me.avatar = "http://wfarm2.dataknet.com/static/resources/icons/set108/b5cdab07.png";
+me.avatar = "images/user.png";
 
 var you = {};
-you.avatar = "http://downloadicons.net/sites/default/files/women-business-user-icon-44928.png";
+you.avatar = "images/eliza.png";
 
 //the function to get the time
 function formatAMPM(date) {
@@ -32,7 +32,7 @@ function insertChat(who, text, time = 0) {
       '</div>' +
       '</div>' +
       '</li>';
-  } else {//
+  } else {//text eliza sends gets formatted 
     control = '<li style="width:100%;">' +
       '<div class="msj-rta macro">' +
       '<div class="text text-r">' +
@@ -71,9 +71,3 @@ $("#mytext").on("keyup", function (e) {
 
 //-- Clear Chat
 resetChat();
-
-$("#user-input-form").submit(
-function (event) {
-  event.preventDefault();
-
-});
