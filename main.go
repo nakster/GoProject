@@ -15,7 +15,7 @@ func handlerFunc(w http.ResponseWriter, r *http.Request) {
 	 userSent := r.URL.Query().Get("value")
 
 	//send the answer to the user
-	fmt.Fprintf(w, "\nEliza: %s\n", util.ReplyQuestion(userSent))
+	fmt.Fprintf(w, "\n%s\n", util.ReplyQuestion(userSent))
 
 }
 

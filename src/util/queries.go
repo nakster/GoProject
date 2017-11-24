@@ -76,6 +76,11 @@ var Responses = map[string][]string{
 		"How long have you been %s?",
 		"How do you feel about being %s?",
 	},
+	`what is your name (.*)`: {
+		"My name is Eliza",
+		"What is your name?",
+		"Thats a bit personal (;",
+	},
 	`i'?m (.*)`: {
 		"How does being %s make you feel?",
 		"Do you enjoy being %s?",
@@ -135,6 +140,11 @@ var Responses = map[string][]string{
 		"Good afternoon... I'm glad you could drop by today.",
 		"Good afternoon... how are you today?",
 		"Good afternoon, how are you feeling today?",
+	},
+	`^good evening(.*)`: {
+		"Good evening... I'm glad you could drop by.",
+		"Good evening... how are you today?",
+		"Good evening, how are you feeling today?",
 	},
 	`I think (.*)`: {
 		"Do you doubt %s?",
