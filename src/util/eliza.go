@@ -67,7 +67,7 @@ func preprocess(input string) string {
 	return input
 }
 
-// reflect flips words i to you
+// reflect flips words i.e i to you
 func reflect(fragment string) string {
 	words := strings.Split(fragment, " ")
 	for i, word := range words {
