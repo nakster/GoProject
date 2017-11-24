@@ -36,7 +36,7 @@ To submit your project, you must make your git repository available using a git 
 4. https://bootsnipp.com/snippets/featured/simple-chat
 5. https://stackoverflow.com/questions/7803814/prevent-refresh-of-page-when-button-inside-form-clicked
 6. https://blog.garstasio.com/you-dont-need-jquery/ajax/
-8. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
+8. https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asphttps://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
 9. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
 10. https://api.jquery.com/jquery.get/
 11. http://api.jquery.com/append/
