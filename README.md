@@ -3,11 +3,11 @@
 #### Running the code
 
 > - Clone this repository using Git.
-> git clone https://github.com/data-representation/go-ajax
+> - git clone https://github.com/nakster/GoProject.git
 > - Change into the folder.
-> cd go-ajax
+> - cd GoProject
 > - Compile the web application with the following command.
-> go build webapp.go
+> - go build main.go
 > - Run the executable produced.
-> ./webapp.exe
-> - Visit http://127.0.0.1:8080. Type something in the text box, and click Submit.
+> - ./main.exe
+> - Visit localhost:8080. Type something in the text box, and click Submit.
