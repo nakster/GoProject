@@ -42,6 +42,7 @@ function insertChat(who, text, time = 0) {
       '<div class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:100%;" src="' + you.avatar + '" /></div>' +
       '</li>';
       
+      //this makes eliza talk
       var msg = new SpeechSynthesisUtterance(text);
       window.speechSynthesis.speak(msg);
   }
