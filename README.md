@@ -52,7 +52,7 @@ To submit your project, you must make your git repository available using a git 
 18. https://stackoverflow.com/questions/26661002/create-new-line-in-document-write-javascript 
 19. https://stackoverflow.com/questions/19424887/remove-scrollbars-from-textarea
 20. https://stackoverflow.com/questions/26493446/change-size-of-scrollbar-thumb-with-css 
-
+21. https://developers.google.com/web/updates/2014/01/Web-apps-that-talk-Introduction-to-the-Speech-Synthesis-API
 
 
 
