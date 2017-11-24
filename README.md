@@ -2,7 +2,7 @@
 ============================================================================
 #### Running the code
 
-> - Clone this repository using Git.
+>- Clone this repository using Git.
 > - git clone https://github.com/nakster/GoProject.git
 > - Change into the folder.
 > - cd GoProject
@@ -30,3 +30,21 @@ In this project you will create a chatbot web application in Go. Users will be a
 #### Submission
 
 To submit your project, you must make your git repository available using a git hosting service like GitHub or GitLab. Use the submission link on the course webpage to submit the URL for your hosted repository. You can submit at any time before the deadline, the earlier the better. The last commit you make to the repository before the deadline will be corrected irrespective of when you submitted your link. If your repository is private you must add the lecturer as a collaborator.
+
+#### Sources
+1. https://github.com/kennysong/goeliza
+2. https://v4-alpha.getbootstrap.com/getting-started/introduction/
+3. https://v4-alpha.getbootstrap.com/components/forms/
+4. https://bootsnipp.com/snippets/featured/simple-chat
+5. https://stackoverflow.com/questions/7803814/prevent-refresh-of-page-when-button-inside-form-clicked
+6. https://blog.garstasio.com/you-dont-need-jquery/ajax/
+7. https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asphttps://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+8. https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
+9. https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollHeight
+10. https://api.jquery.com/jquery.get/
+11. http://api.jquery.com/append/
+12. https://www.w3schools.com/jquery/
+
+
+
+
