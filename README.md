@@ -44,6 +44,14 @@ To submit your project, you must make your git repository available using a git 
 10. https://api.jquery.com/jquery.get/
 11. http://api.jquery.com/append/
 12. https://www.w3schools.com/jquery/
+13. https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_textarea_cols 
+14. https://stackoverflow.com/questions/3580063/how-to-center-a-textarea-using-css 
+15. https://www.w3schools.com/tags/att_body_background.asp
+16. https://www.w3schools.com/css/css_background.asp
+17. https://css-tricks.com/perfect-full-page-background-image/
+18. https://stackoverflow.com/questions/26661002/create-new-line-in-document-write-javascript 
+19. https://stackoverflow.com/questions/19424887/remove-scrollbars-from-textarea
+20. https://stackoverflow.com/questions/26493446/change-size-of-scrollbar-thumb-with-css 
 
 
 
